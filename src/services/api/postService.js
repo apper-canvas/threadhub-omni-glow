@@ -1,5 +1,5 @@
-import postsData from "@/services/mockData/posts.json"
-import { voteService } from "@/services/api/voteService"
+import postsData from "@/services/mockData/posts.json";
+import { voteService } from "@/services/api/voteService";
 
 class PostService {
 constructor() {
@@ -117,7 +117,27 @@ async getByCommunity(communityName) {
     if (post) {
       post.commentCount += 1
     }
-  }
+}
+
+  // Search posts by title and content
+// Search posts by title and content
+  async search(query) {
+    try {
+      await this.delay()
+      
+      if (!query || query.trim() === '') {
+        return []
+      }
+      
+      const searchTerm = query.toLowerCase().trim()
+      return this.posts.filter(post => 
+        post.title.toLowerCase().includes(searchTerm) || 
+        post.content.toLowerCase().includes(searchTerm)
+      )
+    } catch (error) {
+      console.error('Error searching posts:', error)
+      throw new Error('Failed to search posts')
+    }
 }
 
 export const postService = new PostService()

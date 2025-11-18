@@ -8,23 +8,25 @@ import { postService } from "@/services/api/postService"
 import { voteService } from "@/services/api/voteService"
 import { toast } from "react-toastify"
 
-const PostFeed = ({ communityFilter = null, className }) => {
+const PostFeed = ({ communityFilter = null, searchQuery = null, className }) => {
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
   const [currentSort, setCurrentSort] = useState("hot")
 
-  useEffect(() => {
+useEffect(() => {
     loadPosts()
-  }, [currentSort, communityFilter])
+  }, [currentSort, communityFilter, searchQuery])
 
-  const loadPosts = async () => {
+const loadPosts = async () => {
     try {
       setLoading(true)
       setError("")
       
       let data
-      if (communityFilter) {
+      if (searchQuery) {
+        data = await postService.search(searchQuery)
+      } else if (communityFilter) {
         data = await postService.getByCommunity(communityFilter)
       } else {
         data = await postService.getAll()
@@ -35,7 +37,10 @@ const PostFeed = ({ communityFilter = null, className }) => {
       setPosts(sortedData)
     } catch (err) {
       console.error("Failed to load posts:", err)
-      setError("Failed to load posts. Please try again.")
+      setError(searchQuery 
+        ? "Failed to search posts. Please try again."
+        : "Failed to load posts. Please try again."
+      )
     } finally {
       setLoading(false)
     }
@@ -121,7 +126,20 @@ const PostFeed = ({ communityFilter = null, className }) => {
     )
   }
 
-  if (posts.length === 0) {
+if (posts.length === 0) {
+    if (searchQuery) {
+      return (
+        <Empty
+          title="No search results"
+          description={`No posts found matching "${searchQuery}". Try different keywords or browse all posts.`}
+          actionLabel="Browse All Posts"
+          onAction={() => window.location.href = '/'}
+          icon="Search"
+          className={className}
+        />
+      )
+    }
+    
     return (
       <Empty
         title={communityFilter ? `No posts in r/${communityFilter}` : "No posts yet"}
