@@ -11,16 +11,18 @@ import { cn } from "@/utils/cn"
 const CommunitySidebar = ({ className, currentCommunity = null }) => {
   const [communities, setCommunities] = useState([])
   const [trendingCommunities, setTrendingCommunities] = useState([])
+  const [joinedCommunities, setJoinedCommunities] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     loadSidebarData()
   }, [])
 
-  const loadSidebarData = async () => {
+const loadSidebarData = async () => {
     try {
       setLoading(true)
-      const allCommunities = await communityService.getAll()
+const allCommunities = await communityService.getAll()
+      const joined = communityService.getJoinedCommunitiesData()
       
       // Sort by member count for trending
       const trending = [...allCommunities]
@@ -29,6 +31,7 @@ const CommunitySidebar = ({ className, currentCommunity = null }) => {
       
       setCommunities(allCommunities)
       setTrendingCommunities(trending)
+      setJoinedCommunities(joined)
     } catch (error) {
       console.error("Failed to load sidebar data:", error)
     } finally {
@@ -51,7 +54,39 @@ const CommunitySidebar = ({ className, currentCommunity = null }) => {
   }
 
   return (
-    <div className={cn("space-y-6", className)}>
+<div className={cn("space-y-6", className)}>
+      {/* My Communities */}
+      {joinedCommunities.length > 0 && (
+        <div className="bg-white rounded-lg border border-gray-200 p-4">
+          <div className="flex items-center space-x-2 mb-3">
+            <ApperIcon name="Users" size={16} className="text-primary" />
+            <h3 className="font-medium text-gray-900">My Communities</h3>
+          </div>
+          <div className="space-y-2">
+            {joinedCommunities.map((community) => (
+              <Link
+                key={community.Id}
+                to={`/community/${community.name}`}
+                className={cn(
+                  "flex items-center justify-between p-2 rounded-lg hover:bg-gray-50 transition-colors",
+                  currentCommunity?.Id === community.Id && "bg-primary/10 border border-primary/20"
+                )}
+              >
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-primary to-orange-600 rounded-lg flex items-center justify-center text-white text-xs font-bold">
+                    {community.name.charAt(0).toUpperCase()}
+                  </div>
+                  <div>
+                    <div className="font-medium text-sm text-gray-900">r/{community.name}</div>
+                    <div className="text-xs text-gray-500">{community.memberCount} members</div>
+                  </div>
+                </div>
+                <ApperIcon name="ChevronRight" size={14} className="text-gray-400" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
       {/* Current Community Info */}
       {currentCommunity && (
         <div className="bg-gradient-to-br from-primary to-orange-600 rounded-lg p-6 text-white">

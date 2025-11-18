@@ -1,21 +1,20 @@
-import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
-import { formatDistanceToNow } from "date-fns"
-import PostFeed from "@/components/organisms/PostFeed"
-import CommunitySidebar from "@/components/organisms/CommunitySidebar"
-import Button from "@/components/atoms/Button"
-import Loading from "@/components/ui/Loading"
-import ErrorView from "@/components/ui/ErrorView"
-import ApperIcon from "@/components/ApperIcon"
-import { communityService } from "@/services/api/communityService"
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { formatDistanceToNow } from "date-fns";
+import { communityService } from "@/services/api/communityService";
+import ApperIcon from "@/components/ApperIcon";
+import Loading from "@/components/ui/Loading";
+import ErrorView from "@/components/ui/ErrorView";
+import PostFeed from "@/components/organisms/PostFeed";
+import CommunitySidebar from "@/components/organisms/CommunitySidebar";
+import Button from "@/components/atoms/Button";
 
 const Community = () => {
   const { communityName } = useParams()
   const [community, setCommunity] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState("")
+const [error, setError] = useState("")
   const [isJoined, setIsJoined] = useState(false)
-
   useEffect(() => {
     if (communityName) {
       loadCommunity()
@@ -26,9 +25,10 @@ const Community = () => {
     try {
       setLoading(true)
       setError("")
-      const data = await communityService.getByName(communityName)
+const data = await communityService.getByName(communityName)
       if (data) {
         setCommunity(data)
+        setIsJoined(communityService.isUserJoined(data.Id))
         document.title = `r/${data.name} - ThreadHub`
       } else {
         setError("Community not found")
@@ -41,16 +41,28 @@ const Community = () => {
     }
   }
 
-  const handleJoinToggle = () => {
-    setIsJoined(!isJoined)
-    setCommunity(current => {
-      if (!current) return current
-      const memberChange = isJoined ? -1 : 1
-      return {
-        ...current,
-        memberCount: current.memberCount + memberChange
+const handleJoinToggle = async () => {
+    if (!community) return
+
+    try {
+      if (isJoined) {
+        await communityService.leaveCommunity(community.Id)
+      } else {
+        await communityService.joinCommunity(community.Id)
       }
-    })
+      
+      setIsJoined(!isJoined)
+      setCommunity(current => {
+        if (!current) return current
+        const memberChange = isJoined ? -1 : 1
+        return {
+          ...current,
+          memberCount: current.memberCount + memberChange
+        }
+      })
+    } catch (error) {
+      console.error('Failed to toggle membership:', error)
+    }
   }
 
   const handleRetry = () => {

@@ -1,8 +1,10 @@
 import communitiesData from "@/services/mockData/communities.json"
+import { toast } from "react-toastify"
 
 class CommunityService {
   constructor() {
-    this.communities = [...communitiesData]
+this.communities = [...communitiesData]
+    this.membershipKey = 'threadhub_joined_communities'
   }
 
   async delay(ms = 250) {
@@ -83,6 +85,71 @@ class CommunityService {
       community.name.toLowerCase().includes(query.toLowerCase()) ||
       community.description.toLowerCase().includes(query.toLowerCase())
     )
+  }
+// Membership management methods
+  getJoinedCommunities() {
+    try {
+      const joinedData = localStorage.getItem(this.membershipKey)
+      return joinedData ? JSON.parse(joinedData) : []
+    } catch (error) {
+      console.error('Failed to load joined communities:', error)
+      return []
+    }
+  }
+
+  saveJoinedCommunities(communityIds) {
+    try {
+      localStorage.setItem(this.membershipKey, JSON.stringify(communityIds))
+    } catch (error) {
+      console.error('Failed to save joined communities:', error)
+    }
+  }
+
+  isUserJoined(communityId) {
+    const joinedCommunities = this.getJoinedCommunities()
+    return joinedCommunities.includes(communityId)
+  }
+
+  async joinCommunity(communityId) {
+    const joinedCommunities = this.getJoinedCommunities()
+    
+    if (!joinedCommunities.includes(communityId)) {
+      joinedCommunities.push(communityId)
+      this.saveJoinedCommunities(joinedCommunities)
+      
+      // Update member count
+      const community = this.communities.find(c => c.Id === communityId)
+      if (community) {
+        community.memberCount += 1
+        toast.success(`Joined r/${community.name}!`)
+      }
+    }
+    
+    return true
+  }
+
+  async leaveCommunity(communityId) {
+    const joinedCommunities = this.getJoinedCommunities()
+    const index = joinedCommunities.indexOf(communityId)
+    
+    if (index > -1) {
+      joinedCommunities.splice(index, 1)
+      this.saveJoinedCommunities(joinedCommunities)
+      
+      // Update member count
+      const community = this.communities.find(c => c.Id === communityId)
+      if (community) {
+        community.memberCount -= 1
+        toast.success(`Left r/${community.name}`)
+      }
+    }
+    
+    return true
+  }
+
+  getJoinedCommunitiesData() {
+    const joinedIds = this.getJoinedCommunities()
+    return this.communities.filter(community => joinedIds.includes(community.Id))
   }
 }
 
