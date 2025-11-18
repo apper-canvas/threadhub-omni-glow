@@ -35,7 +35,7 @@ this.communities = [...communitiesData]
       Id: Math.max(...this.communities.map(c => c.Id)) + 1,
       name: communityData.name,
       description: communityData.description,
-      memberCount: 1, // Start with creator as first member
+memberCount: Math.floor(Math.random() * 5000) + 1, // Random member count for demo
       createdAt: new Date().toISOString(),
       iconUrl: communityData.iconUrl || "/icons/default.png"
     }
@@ -118,7 +118,7 @@ this.communities = [...communitiesData]
       this.saveJoinedCommunities(joinedCommunities)
       
       // Update member count
-      const community = this.communities.find(c => c.Id === communityId)
+const community = this.communities.find(c => c.Id === communityId)
       if (community) {
         community.memberCount += 1
         toast.success(`Joined r/${community.name}!`)
@@ -137,9 +137,9 @@ this.communities = [...communitiesData]
       this.saveJoinedCommunities(joinedCommunities)
       
       // Update member count
-      const community = this.communities.find(c => c.Id === communityId)
+const community = this.communities.find(c => c.Id === communityId)
       if (community) {
-        community.memberCount -= 1
+        community.memberCount = Math.max(0, community.memberCount - 1)
         toast.success(`Left r/${community.name}`)
       }
     }

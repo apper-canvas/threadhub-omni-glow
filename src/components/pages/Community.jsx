@@ -14,7 +14,9 @@ const Community = () => {
   const [community, setCommunity] = useState(null)
   const [loading, setLoading] = useState(true)
 const [error, setError] = useState("")
-  const [isJoined, setIsJoined] = useState(false)
+const [isJoined, setIsJoined] = useState(false)
+  const [memberCount, setMemberCount] = useState(0)
+
   useEffect(() => {
     if (communityName) {
       loadCommunity()
@@ -51,15 +53,19 @@ const handleJoinToggle = async () => {
         await communityService.joinCommunity(community.Id)
       }
       
-      setIsJoined(!isJoined)
+setIsJoined(!isJoined)
+      const memberChange = isJoined ? -1 : 1
+      
       setCommunity(current => {
         if (!current) return current
-        const memberChange = isJoined ? -1 : 1
+        const newMemberCount = Math.max(0, current.memberCount + memberChange)
         return {
           ...current,
-          memberCount: current.memberCount + memberChange
+          memberCount: newMemberCount
         }
       })
+      
+      setMemberCount(prev => Math.max(0, prev + memberChange))
     } catch (error) {
       console.error('Failed to toggle membership:', error)
     }
@@ -108,7 +114,7 @@ const handleJoinToggle = async () => {
                   <div className="flex items-center space-x-2">
                     <ApperIcon name="Users" size={18} />
                     <span className="font-medium">
-                      {community.memberCount.toLocaleString()} members
+{community.memberCount?.toLocaleString() || 0} members
                     </span>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -164,7 +170,7 @@ const handleJoinToggle = async () => {
 
         {/* Sidebar */}
         <div className="lg:col-span-1">
-          <div className="sticky top-24">
+<div className="sticky top-24">
             <CommunitySidebar currentCommunity={community} />
           </div>
         </div>

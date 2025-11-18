@@ -15,9 +15,14 @@ const CommunitySelector = ({ selectedCommunity, onSelect, className }) => {
 
   const loadCommunities = async () => {
     try {
-      setLoading(true)
+setLoading(true)
       const data = await communityService.getAll()
-      setCommunities(data)
+      // Ensure all communities have member count for display
+      const communitiesWithCounts = data.map(community => ({
+        ...community,
+        memberCount: community.memberCount || 0
+      }))
+      setCommunities(communitiesWithCounts)
     } catch (error) {
       console.error("Failed to load communities:", error)
     } finally {
@@ -84,7 +89,7 @@ const CommunitySelector = ({ selectedCommunity, onSelect, className }) => {
                     <div>
                       <p className="font-medium text-gray-900">r/{community.name}</p>
                       <p className="text-sm text-gray-600 truncate">
-                        {community.memberCount.toLocaleString()} members
+{community.memberCount?.toLocaleString() || 0} members
                       </p>
                     </div>
                   </div>

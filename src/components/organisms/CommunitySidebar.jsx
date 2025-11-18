@@ -20,12 +20,13 @@ const CommunitySidebar = ({ className, currentCommunity = null }) => {
 
 const loadSidebarData = async () => {
     try {
-      setLoading(true)
-const allCommunities = await communityService.getAll()
+setLoading(true)
+      const allCommunities = await communityService.getAll()
       const joined = communityService.getJoinedCommunitiesData()
       
       // Sort by member count for trending
       const trending = [...allCommunities]
+        .filter(c => c.memberCount > 0)
         .sort((a, b) => b.memberCount - a.memberCount)
         .slice(0, 5)
       
@@ -78,7 +79,7 @@ const allCommunities = await communityService.getAll()
                   </div>
                   <div>
                     <div className="font-medium text-sm text-gray-900">r/{community.name}</div>
-                    <div className="text-xs text-gray-500">{community.memberCount} members</div>
+<div className="text-xs text-gray-500">{community.memberCount?.toLocaleString() || 0} members</div>
                   </div>
                 </div>
                 <ApperIcon name="ChevronRight" size={14} className="text-gray-400" />
@@ -99,7 +100,7 @@ const allCommunities = await communityService.getAll()
             <div>
               <h3 className="text-lg font-bold">r/{currentCommunity.name}</h3>
               <p className="text-white/80 text-sm">
-                {currentCommunity.memberCount.toLocaleString()} members
+{currentCommunity.memberCount?.toLocaleString() || 0} members
               </p>
             </div>
           </div>
@@ -140,7 +141,7 @@ const allCommunities = await communityService.getAll()
                   r/{community.name}
                 </p>
                 <p className="text-sm text-gray-600">
-                  {community.memberCount.toLocaleString()} members
+{community.memberCount?.toLocaleString() || 0} members
                 </p>
               </div>
             </Link>
@@ -173,7 +174,7 @@ const allCommunities = await communityService.getAll()
                   r/{community.name}
                 </p>
                 <p className="text-xs text-gray-600">
-                  {community.memberCount.toLocaleString()} members
+{community.memberCount?.toLocaleString() || 0} members
                 </p>
               </div>
             </Link>
