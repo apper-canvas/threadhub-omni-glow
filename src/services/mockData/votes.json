@@ -1,0 +1,37 @@
+[
+  {
+    "Id": 1,
+    "userId": "user123",
+    "targetId": 1,
+    "targetType": "post",
+    "direction": "up"
+  },
+  {
+    "Id": 2,
+    "userId": "user456",
+    "targetId": 1,
+    "targetType": "post", 
+    "direction": "up"
+  },
+  {
+    "Id": 3,
+    "userId": "user789",
+    "targetId": 2,
+    "targetType": "post",
+    "direction": "up"
+  },
+  {
+    "Id": 4,
+    "userId": "user123",
+    "targetId": 1,
+    "targetType": "comment",
+    "direction": "up"
+  },
+  {
+    "Id": 5,
+    "userId": "user456",
+    "targetId": 5,
+    "targetType": "comment",
+    "direction": "down"
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "Id": 1,
+    "title": "The Ultimate Guide to Modern Web Development",
+    "content": "As we move into 2024, web development continues to evolve at a rapid pace. Here's what every developer should know:\n\n1. **Framework Evolution**: React, Vue, and Angular continue to dominate, but new frameworks like Solid.js and Qwik are gaining traction.\n\n2. **Performance First**: Core Web Vitals are now crucial for SEO. Tools like Lighthouse and PageSpeed Insights are essential.\n\n3. **AI Integration**: GitHub Copilot and ChatGPT are changing how we write code. Learn to leverage these tools effectively.\n\n4. **Edge Computing**: Vercel Edge Functions and Cloudflare Workers are making applications faster globally.\n\nWhat trends are you most excited about?",
+    "linkUrl": "",
+    "author": "techguru42",
+    "community": "webdev",
+    "votes": 1247,
+    "commentCount": 89,
+    "createdAt": "2024-01-15T08:30:00Z",
+    "type": "text"
+  },
+  {
+    "Id": 2,
+    "title": "This GitHub repository changed how I approach React development",
+    "content": "Found this amazing collection of React patterns and best practices. The examples are practical and the explanations are clear. Definitely worth bookmarking!",
+    "linkUrl": "https://github.com/reactpatterns/react-patterns",
+    "author": "reactdev2024",
+    "community": "webdev",
+    "votes": 892,
+    "commentCount": 67,
+    "createdAt": "2024-01-14T15:45:00Z",
+    "type": "link"
+  },
+  {
+    "Id": 3,
+    "title": "Why I switched from Redux to Zustand (and you should too)",
+    "content": "After working with Redux for 3 years, I finally made the switch to Zustand. Here's why:\n\n**Less Boilerplate**: No more actions, reducers, and dispatch. Just simple state updates.\n\n**Better TypeScript Support**: Type inference works beautifully out of the box.\n\n**Smaller Bundle Size**: 5x smaller than Redux + Redux Toolkit.\n\n**Easier Testing**: No need to mock stores or providers.\n\nThe learning curve is minimal if you're coming from Redux. The mental model is similar but simplified.\n\nHere's a quick example of how clean the API is:\n\n```javascript\nconst useStore = create((set) => ({\n  count: 0,\n  increment: () => set((state) => ({ count: state.count + 1 })),\n}))\n```\n\nHave you tried Zustand? What's been your experience?",
+    "linkUrl": "",
+    "author": "zustandfan",
+    "community": "webdev",
+    "votes": 743,
+    "commentCount": 124,
+    "createdAt": "2024-01-14T11:20:00Z",
+    "type": "text"
+  },
+  {
+    "Id": 4,
+    "title": "Show HN: I built a tool to optimize your Tailwind CSS bundles",
+    "content": "Spent the last few months working on this. It analyzes your HTML/JSX files and suggests which Tailwind utilities you're not using, plus identifies opportunities for custom components.\n\nFeatures:\n- Unused class detection\n- Bundle size analysis\n- Performance recommendations\n- VS Code extension\n\nFeedback welcome! Still in beta but it's already helping me reduce bundle sizes by 40-60%.",
+    "linkUrl": "https://tailwind-optimizer.dev",
+    "author": "buildtoolsmith",
+    "community": "webdev",
+    "votes": 567,
+    "commentCount": 45,
+    "createdAt": "2024-01-14T09:15:00Z",
+    "type": "link"
+  },
+  {
+    "Id": 5,
+    "title": "The hidden psychology behind addictive app design",
+    "content": "Ever wonder why you can't stop scrolling? It's not an accident. App designers use psychological principles to keep us engaged:\n\n**Variable Ratio Reinforcement**: Like slot machines, social media gives unpredictable rewards (likes, comments) which creates stronger addiction patterns than consistent rewards.\n\n**Social Validation Loops**: We're hardwired to seek approval. Every like releases dopamine, creating a feedback loop.\n\n**Fear of Missing Out (FOMO)**: Infinite scroll and 'stories that disappear' create artificial urgency.\n\n**The Zeigarnik Effect**: Unfinished tasks (red notification badges) create mental tension that demands resolution.\n\nThe tech industry calls this 'engagement optimization' but it's really 'attention hijacking.' We need better digital literacy to recognize and resist these patterns.\n\nWhat design patterns have you noticed that seem manipulative?",
+    "linkUrl": "",
+    "author": "digitalpsych",
+    "community": "technology",
+    "votes": 2156,
+    "commentCount": 312,
+    "createdAt": "2024-01-13T16:40:00Z",
+    "type": "text"
+  },
+  {
+    "Id": 6,
+    "title": "Apple's new M3 MacBook Air: First impressions after a week",
+    "content": "Just got my hands on the 15-inch M3 MacBook Air. Here are my thoughts:\n\n**The Good:**\n- Battery life is incredible (12-14 hours of actual use)\n- Silent operation even under heavy load\n- The display is gorgeous, much better than I expected\n- Build quality feels premium as always\n\n**The Not So Good:**\n- Only 8GB RAM base model is criminal in 2024\n- SSD upgrade prices are still ridiculous ($400 for 512GB)\n- Port selection could be better (only 2 USB-C)\n\n**Performance:**\nFor development work, it handles VSCode + Docker + multiple browsers without breaking a sweat. Video editing in Final Cut Pro is smooth for 4K footage.\n\n**Worth the upgrade from M1?**\nHonestly, probably not unless you need the bigger screen. The M1 is still incredibly capable.\n\nAMA about specific use cases!",
+    "linkUrl": "",
+    "author": "appleguy",
+    "community": "technology",
+    "votes": 1834,
+    "commentCount": 267,
+    "createdAt": "2024-01-13T13:25:00Z",
+    "type": "text"
+  },
+  {
+    "Id": 7,
+    "title": "This AI paper explains why ChatGPT sometimes 'hallucinates'",
+    "content": "Fascinating research from Stanford on why large language models generate false information with such confidence.",
+    "linkUrl": "https://arxiv.org/abs/2401.12345",
+    "author": "airesearcher",
+    "community": "technology",
+    "votes": 1456,
+    "commentCount": 198,
+    "createdAt": "2024-01-12T20:10:00Z",
+    "type": "link"
+  },
+  {
+    "Id": 8,
+    "title": "My 6-month journey learning Rust: What I wish I knew starting out",
+    "content": "Coming from JavaScript/Python, Rust was intimidating. Here's what I learned:\n\n**Month 1-2: The Struggle**\nFighting the borrow checker constantly. Every program felt like a battle. I almost quit.\n\n**Month 3-4: The Breakthrough**\nSomething clicked with ownership. Started thinking in terms of lifetimes and references.\n\n**Month 5-6: The Joy**\nOnce you understand the system, Rust becomes incredibly satisfying to write.\n\n**Key Insights:**\n1. Don't fight the borrow checker, learn from it\n2. Start with simple CLI tools, not web servers\n3. Use clippy religiously - it's an amazing teacher\n4. The Rust Book is excellent, but also try Rustlings for practice\n5. Join the Discord - the community is incredibly helpful\n\n**What I built:**\n- A file organizer CLI tool\n- A simple web scraper\n- A basic HTTP server\n- Several Advent of Code solutions\n\n**Performance gains:**\nMy Rust programs consistently run 3-10x faster than equivalent Python with lower memory usage.\n\n**Would I recommend it?**\nAbsolutely, but set expectations correctly. It's hard at first but incredibly rewarding.\n\nHappy to answer questions about specific Rust concepts!",
+    "linkUrl": "",
+    "author": "rustnovice",
+    "community": "programming",
+    "votes": 2341,
+    "commentCount": 428,
+    "createdAt": "2024-01-12T14:30:00Z",
+    "type": "text"
+  },
+  {
+    "Id": 9,
+    "title": "PostgreSQL 16: New features every developer should know",
+    "content": "PostgreSQL 16 dropped some game-changing features:\n\n**1. JSON Schema Validation**\nFinally! Built-in JSON schema validation means no more application-level validation for JSON columns.\n\n```sql\nCREATE TABLE products (\n    id SERIAL PRIMARY KEY,\n    metadata JSON CHECK (metadata IS JSON VALID SCHEMA '{\n        \"type\": \"object\",\n        \"required\": [\"name\", \"price\"]\n    }')\n);\n```\n\n**2. Incremental Backup**\nHuge win for large databases. Instead of full backups every time, you can now do incremental backups.\n\n**3. Better Parallel Query Performance**\nParallel hash joins are now smarter about memory allocation.\n\n**4. Logical Replication Improvements**\nBi-directional replication is now possible, opening up multi-master scenarios.\n\n**5. Extended Statistics**\nBetter query planning with cross-column correlations.\n\nUpgraded our production database last week. The performance improvements are noticeable, especially for analytical queries.\n\nAnyone else upgraded yet? How's the experience been?",
+    "linkUrl": "",
+    "author": "dbadmin",
+    "community": "programming",
+    "votes": 876,
+    "commentCount": 142,
+    "createdAt": "2024-01-11T10:45:00Z",
+    "type": "text"
+  },
+  {
+    "Id": 10,
+    "title": "Show off your developer setup! Here's mine after 5 years of tweaking",
+    "content": "Finally happy with my setup. Here's the breakdown:\n\n**Hardware:**\n- M2 MacBook Pro 16\" (32GB RAM, 1TB SSD)\n- LG 34\" Ultrawide (3440x1440)\n- Keychron K2 (Brown switches)\n- MX Master 3S mouse\n- Desk shelf with cable management\n\n**Software:**\n- iTerm2 + Oh My Zsh\n- Neovim (switched from VSCode 6 months ago)\n- Raycast (replaced Spotlight)\n- Rectangle Pro (window management)\n- CleanMyMac X\n\n**Development:**\n- Docker Desktop\n- Postman for API testing\n- TablePlus for database management\n- Git with custom aliases\n- Homebrew for package management\n\n**Productivity:**\n- Notion for notes and project management\n- Toggl Track for time tracking\n- Slack for team communication\n- Calendly for scheduling\n\n**The game-changers:**\n1. Ultrawide monitor - never going back to dual monitors\n2. Mechanical keyboard - typing feels so much better\n3. Neovim - steep learning curve but incredible productivity boost\n4. Raycast - so much better than Spotlight\n\n**Total cost:** ~$4,500 (spread over 2 years)\n\nWhat's your setup? Any recommendations for improvements?",
+    "linkUrl": "",
+    "author": "devsetup",
+    "community": "programming",
+    "votes": 1567,
+    "commentCount": 234,
+    "createdAt": "2024-01-10T16:20:00Z",
+    "type": "text"
+  }
+]

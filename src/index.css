@@ -1,0 +1,120 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'react-toastify/dist/ReactToastify.css';
+
+/* Custom toast styling */
+.Toastify__toast {
+  @apply bg-white border border-gray-200 text-gray-800 shadow-lg rounded-lg;
+}
+
+.Toastify__toast--success {
+  @apply border-accent bg-gradient-to-r from-white to-green-50;
+}
+
+.Toastify__toast--error {
+  @apply border-error bg-gradient-to-r from-white to-red-50;
+}
+
+.Toastify__toast--info {
+  @apply border-secondary bg-gradient-to-r from-white to-blue-50;
+}
+
+.Toastify__close-button {
+  @apply text-gray-500 hover:text-gray-700;
+}
+
+.Toastify__progress-bar {
+  @apply bg-primary;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
+
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+/* Base styles */
+body {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  line-height: 1.5;
+  @apply bg-gray-50;
+}
+
+/* Comment thread indentation */
+.comment-thread {
+  border-left: 2px solid transparent;
+  transition: border-color 200ms ease-out;
+}
+
+.comment-thread:hover {
+  border-left-color: #e5e7eb;
+}
+
+.comment-thread.level-1 { margin-left: 20px; }
+.comment-thread.level-2 { margin-left: 40px; }
+.comment-thread.level-3 { margin-left: 60px; }
+.comment-thread.level-4 { margin-left: 80px; }
+.comment-thread.level-5 { margin-left: 100px; }
+
+/* Vote button animations */
+.vote-button {
+  transition: all 150ms ease-out;
+}
+
+.vote-button:hover {
+  transform: scale(1.1);
+}
+
+.vote-button.upvoted {
+  color: #FF4500;
+}
+
+.vote-button.downvoted {
+  color: #0079D3;
+}
+
+/* Post card hover effects */
+.post-card {
+  transition: all 200ms ease-out;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Community badge styles */
+.community-badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full bg-gradient-to-r from-primary to-orange-600 text-white text-xs font-medium;
+}
+
+/* Loading skeleton animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}

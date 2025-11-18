@@ -1,0 +1,233 @@
+[
+  {
+    "Id": 1,
+    "postId": 1,
+    "parentId": null,
+    "author": "reactdev123",
+    "content": "Great overview! I'd add that understanding Web Components is becoming increasingly important too. They provide a framework-agnostic way to build reusable components.",
+    "votes": 89,
+    "createdAt": "2024-01-15T09:15:00Z",
+    "replies": [
+      {
+        "Id": 11,
+        "postId": 1,
+        "parentId": 1,
+        "author": "webcomponent_fan",
+        "content": "Absolutely agree! Lit and Stencil are making Web Components much more approachable. The interoperability is a huge advantage.",
+        "votes": 34,
+        "createdAt": "2024-01-15T09:45:00Z",
+        "replies": []
+      },
+      {
+        "Id": 12,
+        "postId": 1,
+        "parentId": 1,
+        "author": "techguru42",
+        "content": "Good point! I should have included Web Components. They're especially valuable in large organizations with multiple frontend teams using different frameworks.",
+        "votes": 56,
+        "createdAt": "2024-01-15T10:20:00Z",
+        "replies": []
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "postId": 1,
+    "parentId": null,
+    "author": "performanceguru",
+    "content": "The Core Web Vitals point is crucial. I've seen sites lose 30% of their traffic just from poor CLS scores. Tools like Partytown for third-party scripts are game-changers.",
+    "votes": 67,
+    "createdAt": "2024-01-15T11:30:00Z",
+    "replies": [
+      {
+        "Id": 13,
+        "postId": 1,
+        "parentId": 2,
+        "author": "seoexpert",
+        "content": "This! Google is getting stricter about Core Web Vitals. I recommend running Lighthouse CI in your deployment pipeline.",
+        "votes": 23,
+        "createdAt": "2024-01-15T12:00:00Z",
+        "replies": []
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "postId": 2,
+    "parentId": null,
+    "author": "jspatterns",
+    "content": "This repository is incredible! The compound component pattern explanation alone saved me hours of research. Thanks for sharing!",
+    "votes": 45,
+    "createdAt": "2024-01-14T16:20:00Z",
+    "replies": []
+  },
+  {
+    "Id": 4,
+    "postId": 2,
+    "parentId": null,
+    "author": "reactnewbie",
+    "content": "Perfect timing! I was just struggling with prop drilling. The context pattern examples are exactly what I needed.",
+    "votes": 32,
+    "createdAt": "2024-01-14T17:45:00Z",
+    "replies": [
+      {
+        "Id": 14,
+        "postId": 2,
+        "parentId": 4,
+        "author": "reactdev2024",
+        "content": "Glad it helped! The render props section is also worth checking out - it's a powerful pattern that's often overlooked.",
+        "votes": 18,
+        "createdAt": "2024-01-14T18:10:00Z",
+        "replies": []
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "postId": 3,
+    "parentId": null,
+    "author": "statemanagement",
+    "content": "I made the same switch 6 months ago and haven't looked back. The DevTools experience is also much better - you can see state changes in real-time without the Redux DevTools complexity.",
+    "votes": 78,
+    "createdAt": "2024-01-14T12:00:00Z",
+    "replies": [
+      {
+        "Id": 15,
+        "postId": 3,
+        "parentId": 5,
+        "author": "zustandfan",
+        "content": "Yes! The DevTools integration is so clean. And the middleware system is powerful but optional - you only add complexity when you need it.",
+        "votes": 41,
+        "createdAt": "2024-01-14T12:30:00Z",
+        "replies": [
+          {
+            "Id": 25,
+            "postId": 3,
+            "parentId": 15,
+            "author": "devtools_lover",
+            "content": "The time-travel debugging in Zustand DevTools is fantastic. Much easier to use than Redux DevTools.",
+            "votes": 19,
+            "createdAt": "2024-01-14T13:00:00Z",
+            "replies": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 6,
+    "postId": 3,
+    "parentId": null,
+    "author": "reduxfan",
+    "content": "But what about time-travel debugging? Redux DevTools are still unmatched for complex state debugging scenarios.",
+    "votes": -12,
+    "createdAt": "2024-01-14T13:15:00Z",
+    "replies": [
+      {
+        "Id": 16,
+        "postId": 3,
+        "parentId": 6,
+        "author": "zustandfan",
+        "content": "Zustand actually supports time-travel debugging too! Check out the redux DevTools middleware. It's optional but available when you need it.",
+        "votes": 67,
+        "createdAt": "2024-01-14T13:45:00Z",
+        "replies": []
+      }
+    ]
+  },
+  {
+    "Id": 7,
+    "postId": 5,
+    "parentId": null,
+    "author": "mindfultech",
+    "content": "This is why I've started using apps like Forest and Cold Turkey. We need technological solutions to technological problems. Great breakdown of the psychology!",
+    "votes": 156,
+    "createdAt": "2024-01-13T17:20:00Z",
+    "replies": [
+      {
+        "Id": 17,
+        "postId": 5,
+        "parentId": 7,
+        "author": "digitalpsych",
+        "content": "Forest is great! I also recommend turning off all non-essential notifications. The average person checks their phone 96 times a day - mostly due to notification triggers.",
+        "votes": 89,
+        "createdAt": "2024-01-13T18:00:00Z",
+        "replies": []
+      }
+    ]
+  },
+  {
+    "Id": 8,
+    "postId": 5,
+    "parentId": null,
+    "author": "uxdesigner",
+    "content": "As a designer, I feel conflicted about this. We're taught to optimize for engagement, but where's the line between good UX and manipulation? The industry needs better ethical guidelines.",
+    "votes": 234,
+    "createdAt": "2024-01-13T19:30:00Z",
+    "replies": [
+      {
+        "Id": 18,
+        "postId": 5,
+        "parentId": 8,
+        "author": "ethicaltech",
+        "content": "Check out the Center for Humane Technology - they're working on exactly these kinds of ethical design frameworks. We need more designers thinking like you!",
+        "votes": 78,
+        "createdAt": "2024-01-13T20:15:00Z",
+        "replies": []
+      }
+    ]
+  },
+  {
+    "Id": 9,
+    "postId": 8,
+    "parentId": null,
+    "author": "gopher_dev",
+    "content": "Great writeup! I had a similar experience coming from Go. The ownership model was the biggest hurdle, but once it clicks, you start to see memory bugs in other languages everywhere.",
+    "votes": 123,
+    "createdAt": "2024-01-12T15:45:00Z",
+    "replies": [
+      {
+        "Id": 19,
+        "postId": 8,
+        "parentId": 9,
+        "author": "rustnovice",
+        "content": "Exactly! I can't unsee potential null pointer dereferences in JavaScript now. Rust really changes how you think about memory safety.",
+        "votes": 87,
+        "createdAt": "2024-01-12T16:20:00Z",
+        "replies": []
+      }
+    ]
+  },
+  {
+    "Id": 10,
+    "postId": 8,
+    "parentId": null,
+    "author": "rust_beginner",
+    "content": "Currently in month 2 of learning Rust and definitely in the struggle phase! This gives me hope. Any specific resources you'd recommend for the ownership concepts?",
+    "votes": 67,
+    "createdAt": "2024-01-12T17:00:00Z",
+    "replies": [
+      {
+        "Id": 20,
+        "postId": 8,
+        "parentId": 10,
+        "author": "rustnovice",
+        "content": "The 'Rust Ownership Explained' series on YouTube by Jon Gjengset is fantastic. Also, try implementing a simple linked list - it forces you to understand borrowing deeply.",
+        "votes": 45,
+        "createdAt": "2024-01-12T17:30:00Z",
+        "replies": [
+          {
+            "Id": 26,
+            "postId": 8,
+            "parentId": 20,
+            "author": "linkedlist_fan",
+            "content": "The linked list suggestion is brutal but effective! I spent 3 days on it but learned more about Rust than in the previous month.",
+            "votes": 23,
+            "createdAt": "2024-01-12T18:00:00Z",
+            "replies": []
+          }
+        ]
+      }
+    ]
+  }
+]

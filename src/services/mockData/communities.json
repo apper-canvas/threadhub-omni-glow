@@ -1,0 +1,98 @@
+[
+  {
+    "Id": 1,
+    "name": "webdev",
+    "description": "A community for web developers to share knowledge, ask questions, and discuss the latest trends in web development. From frontend frameworks to backend technologies, all web development topics are welcome here.",
+    "memberCount": 2847293,
+    "createdAt": "2019-03-15T10:30:00Z",
+    "iconUrl": "/icons/webdev.png"
+  },
+  {
+    "Id": 2,
+    "name": "technology",
+    "description": "The latest news and discussions about technology, gadgets, software, and the tech industry. Share interesting articles, ask for advice, and discuss how technology shapes our world.",
+    "memberCount": 5234871,
+    "createdAt": "2018-01-20T14:45:00Z",
+    "iconUrl": "/icons/technology.png"
+  },
+  {
+    "Id": 3,
+    "name": "programming",
+    "description": "A place for programmers to discuss programming languages, algorithms, software engineering, and coding best practices. Whether you're a beginner or experienced developer, everyone is welcome to learn and share.",
+    "memberCount": 3756429,
+    "createdAt": "2018-06-10T09:15:00Z",
+    "iconUrl": "/icons/programming.png"
+  },
+  {
+    "Id": 4,
+    "name": "javascript",
+    "description": "Everything JavaScript! Discuss ES6+ features, frameworks like React and Vue, Node.js, TypeScript, and the ever-evolving JavaScript ecosystem. Share code, ask questions, and help others learn.",
+    "memberCount": 1924567,
+    "createdAt": "2019-02-28T11:20:00Z",
+    "iconUrl": "/icons/javascript.png"
+  },
+  {
+    "Id": 5,
+    "name": "react",
+    "description": "The official React community on ThreadHub. Discuss React 18+, hooks, state management, performance optimization, and best practices. Share your React projects and get help with challenging problems.",
+    "memberCount": 1567892,
+    "createdAt": "2019-08-05T16:30:00Z",
+    "iconUrl": "/icons/react.png"
+  },
+  {
+    "Id": 6,
+    "name": "python",
+    "description": "Python programming community for developers of all skill levels. Share Python tips, discuss frameworks like Django and Flask, data science with pandas and NumPy, and showcase your Python projects.",
+    "memberCount": 2134678,
+    "createdAt": "2018-11-12T13:45:00Z",
+    "iconUrl": "/icons/python.png"
+  },
+  {
+    "Id": 7,
+    "name": "artificial_intelligence",
+    "description": "Discuss the latest in AI and machine learning. Share research papers, debate AI ethics, showcase ML projects, and explore the future of artificial intelligence. From neural networks to large language models.",
+    "memberCount": 1845321,
+    "createdAt": "2020-01-15T12:00:00Z",
+    "iconUrl": "/icons/ai.png"
+  },
+  {
+    "Id": 8,
+    "name": "startup",
+    "description": "A community for entrepreneurs, founders, and startup enthusiasts. Share your startup journey, get feedback on ideas, discuss fundraising, and connect with fellow entrepreneurs building the next big thing.",
+    "memberCount": 987654,
+    "createdAt": "2019-05-20T10:30:00Z",
+    "iconUrl": "/icons/startup.png"
+  },
+  {
+    "Id": 9,
+    "name": "design",
+    "description": "For designers and design enthusiasts. Share UI/UX designs, get feedback on your work, discuss design principles, and explore the intersection of design and technology. All design disciplines welcome.",
+    "memberCount": 1345678,
+    "createdAt": "2019-07-08T15:20:00Z",
+    "iconUrl": "/icons/design.png"
+  },
+  {
+    "Id": 10,
+    "name": "cybersecurity",
+    "description": "Information security, cybersecurity news, ethical hacking, and digital privacy discussions. Learn about the latest threats, share security best practices, and discuss how to stay safe in the digital age.",
+    "memberCount": 876543,
+    "createdAt": "2020-03-10T14:15:00Z",
+    "iconUrl": "/icons/security.png"
+  },
+  {
+    "Id": 11,
+    "name": "gamedev",
+    "description": "Game developers unite! Share your indie game projects, discuss game engines like Unity and Unreal, get feedback on gameplay mechanics, and connect with other game developers and designers.",
+    "memberCount": 756432,
+    "createdAt": "2019-11-25T11:40:00Z",
+    "iconUrl": "/icons/gamedev.png"
+  },
+  {
+    "Id": 12,
+    "name": "devops",
+    "description": "DevOps, cloud computing, infrastructure as code, CI/CD, and site reliability engineering. Share your automation scripts, discuss containerization with Docker and Kubernetes, and explore cloud platforms.",
+    "memberCount": 654321,
+    "createdAt": "2020-02-14T09:30:00Z",
+    "iconUrl": "/icons/devops.png"
+  }
+]
