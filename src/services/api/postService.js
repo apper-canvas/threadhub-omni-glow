@@ -9,9 +9,28 @@ class PostService {
     return new Promise(resolve => setTimeout(resolve, ms))
   }
 
-  async getAll() {
+async getAll() {
     await this.delay()
-    return [...this.posts].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    const posts = [...this.posts]
+    
+    // Get vote counts for all posts
+    const postsWithVotes = await Promise.all(
+      posts.map(async (post) => {
+        const voteCount = await this.voteService.getVoteCount(post.Id, 'post')
+        return {
+          ...post,
+          voteScore: voteCount
+        }
+      })
+    )
+    
+    // Sort by vote count (descending), then by creation date for ties
+    return postsWithVotes.sort((a, b) => {
+      if (b.voteScore !== a.voteScore) {
+        return b.voteScore - a.voteScore
+      }
+      return new Date(b.createdAt) - new Date(a.createdAt)
+    })
   }
 
   async getById(id) {
@@ -19,11 +38,28 @@ class PostService {
     return this.posts.find(post => post.Id === id) || null
   }
 
-  async getByCommunity(communityName) {
+async getByCommunity(communityName) {
     await this.delay()
-    return this.posts
-      .filter(post => post.community === communityName)
-      .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    const filteredPosts = this.posts.filter(post => post.community === communityName)
+    
+    // Get vote counts for filtered posts
+    const postsWithVotes = await Promise.all(
+      filteredPosts.map(async (post) => {
+        const voteCount = await this.voteService.getVoteCount(post.Id, 'post')
+        return {
+          ...post,
+          voteScore: voteCount
+        }
+      })
+    )
+    
+    // Sort by vote count (descending), then by creation date for ties
+    return postsWithVotes.sort((a, b) => {
+      if (b.voteScore !== a.voteScore) {
+        return b.voteScore - a.voteScore
+      }
+      return new Date(b.createdAt) - new Date(a.createdAt)
+    })
   }
 
   async create(postData) {
