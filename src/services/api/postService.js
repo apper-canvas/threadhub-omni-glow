@@ -140,4 +140,6 @@ async getByCommunity(communityName) {
     }
 }
 
+}
+
 export const postService = new PostService()
