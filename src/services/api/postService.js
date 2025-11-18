@@ -1,8 +1,10 @@
 import postsData from "@/services/mockData/posts.json"
+import { voteService } from "@/services/api/voteService"
 
 class PostService {
-  constructor() {
+constructor() {
     this.posts = [...postsData]
+    this.voteService = voteService
   }
 
   async delay(ms = 300) {
